@@ -143,7 +143,7 @@ These are deterministic regression checks, not independent clinical validation o
 - **No medical decisions.** Emergency matching is demonstrative and incomplete. Staff handoffs are queued records, not actual calls or notifications. Refill requests are never approvals.
 - **Not a production identity system.** Name and DOB are public demo fixtures. Session IDs are not an authentication model.
 - Hosted preview is a static browser simulator; the Python API runs locally. GitHub Pages is public and can be shared with recruiters. The Python API is not deployed on Pages.
-- No voice, SMS, fax intake, live EHR, recording, or application submission. A narrated video can follow the demo script in `DEMO_SCRIPT.md`.
+- No live phone calls, SMS, fax intake, live EHR access, or application submission. The narrated demo video is included above; `DEMO_SCRIPT.md` provides a separate suggested walkthrough.
 - Browser and Python engines are separate implementations; their tests cover key invariants, not complete behavioral parity.
 - Live model integration and production-style authentication are the next milestones before presenting this as the full application-plan MVP. See [ROADMAP.md](ROADMAP.md) for prioritized improvements.
 
