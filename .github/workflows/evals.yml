@@ -1,0 +1,23 @@
+name: FrontDesk evaluations
+on: [push, pull_request]
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: pip install -r requirements.txt
+      - run: python -m pytest evals -q --junitxml=eval-results.xml
+      - run: npm ci && npm run build
+      - run: node --experimental-strip-types --test evals/browser-engine.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evaluation-results
+          path: eval-results.xml

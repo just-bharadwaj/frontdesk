@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:06,845
+Meet FrontDesk, a patient access prototype for a synthetic clinic. This walkthrough
+shows a working scheduling flow,
+
+2
+00:00:06,845 --> 00:00:10,871
+a traceable tool audit, and clear boundaries around clinical questions.
+
+3
+00:00:11,571 --> 00:00:18,859
+The staff dashboard brings conversations, appointments, refill requests, and handoffs
+together. It is built with React and
+
+4
+00:00:18,859 --> 00:00:22,717
+TypeScript, with a responsive layout for desktop and mobile.
+
+5
+00:00:23,417 --> 00:00:29,623
+A patient starts by requesting an appointment. Before revealing patient information or
+taking action, FrontDesk asks for
+
+6
+00:00:29,623 --> 00:00:34,734
+a full name and date of birth. Here, we use the synthetic demo identity.
+
+7
+00:00:35,433 --> 00:00:42,371
+After verification, the patient sees available slots with an exact date, time, and provider.
+Choosing a slot
+
+8
+00:00:42,371 --> 00:00:45,635
+moves the conversation to a separate confirmation step.
+
+9
+00:00:46,335 --> 00:00:53,055
+FrontDesk repeats the appointment details and waits for confirmation. This separates a
+suggested action from an executed
+
+10
+00:00:53,055 --> 00:00:55,427
+action, keeping the patient in control.
+
+11
+00:00:56,127 --> 00:01:02,282
+Once confirmed, the appointment is added and the dashboard updates. This is a
+working browser simulation, with
+
+12
+00:01:02,282 --> 00:01:06,265
+state saved on the device, rather than a static interface mockup.
+
+13
+00:01:06,965 --> 00:01:13,424
+Staff can inspect the ordered tool calls: patient lookup, identity verification, slot search,
+and booking. The trace
+
+14
+00:01:13,424 --> 00:01:19,123
+makes it possible to see what the assistant actually did, not just what it said.
+
+15
+00:01:19,823 --> 00:01:27,125
+The demo also includes guardrails. Recognized emergency language interrupts the
+workflow. Two failed identity attempts trigger a
+
+16
+00:01:27,125 --> 00:01:34,428
+staff handoff. Refill requests go to a review queue and are never automatically
+approved. Handoffs are simulated
+
+17
+00:01:34,428 --> 00:01:34,858
+records.
+
+18
+00:01:35,558 --> 00:01:43,761
+The project includes a connected local Python API using FastAPI, Pydantic, and
+SQLite. Forty Python checks and
+
+19
+00:01:43,761 --> 00:01:51,963
+eight browser engine checks pass locally. They cover workflow completion, identity
+guards, emergency interruption, and slot conflicts.
+
+20
+00:01:52,663 --> 00:01:58,535
+This version uses synthetic data and a deterministic agent. Live language models,
+phone calls, and real E
+
+21
+00:01:58,535 --> 00:02:04,407
+H R access are not connected. The next milestone is a voice enabled model behind the
+same
+
+22
+00:02:04,407 --> 00:02:05,444
+validated tool layer.

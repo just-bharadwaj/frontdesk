@@ -1,0 +1,32 @@
+FRONTDESK — PRODUCT WALKTHROUGH
+Synthetic narration. Edited captures of the working demo.
+
+00:00:00 — PATIENT ACCESS • ENGINEERING DEMO
+Meet FrontDesk, a patient access prototype for a synthetic clinic. This walkthrough shows a working scheduling flow, a traceable tool audit, and clear boundaries around clinical questions.
+
+00:00:11 — THE STAFF WORKSPACE
+The staff dashboard brings conversations, appointments, refill requests, and handoffs together. It is built with React and TypeScript, with a responsive layout for desktop and mobile.
+
+00:00:23 — IDENTITY FIRST
+A patient starts by requesting an appointment. Before revealing patient information or taking action, FrontDesk asks for a full name and date of birth. Here, we use the synthetic demo identity.
+
+00:00:35 — FIND AVAILABILITY
+After verification, the patient sees available slots with an exact date, time, and provider. Choosing a slot moves the conversation to a separate confirmation step.
+
+00:00:46 — EXPLICIT CONFIRMATION
+FrontDesk repeats the appointment details and waits for confirmation. This separates a suggested action from an executed action, keeping the patient in control.
+
+00:00:56 — BOOKING COMPLETE
+Once confirmed, the appointment is added and the dashboard updates. This is a working browser simulation, with state saved on the device, rather than a static interface mockup.
+
+00:01:06 — ENGINEERING EVIDENCE
+Staff can inspect the ordered tool calls: patient lookup, identity verification, slot search, and booking. The trace makes it possible to see what the assistant actually did, not just what it said.
+
+00:01:19 — WORKFLOW GUARDRAILS • EXPLAINED
+The demo also includes guardrails. Recognized emergency language interrupts the workflow. Two failed identity attempts trigger a staff handoff. Refill requests go to a review queue and are never automatically approved. Handoffs are simulated records.
+
+00:01:35 — IMPLEMENTATION & VALIDATION
+The project includes a connected local Python API using FastAPI, Pydantic, and SQLite. Forty Python checks and eight browser engine checks pass locally. They cover workflow completion, identity guards, emergency interruption, and slot conflicts.
+
+00:01:52 — CURRENT SCOPE & NEXT STEP
+This version uses synthetic data and a deterministic agent. Live language models, phone calls, and real E H R access are not connected. The next milestone is a voice enabled model behind the same validated tool layer.
